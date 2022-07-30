@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.0)
+project(demo CXX)
+ 
+# 设置编译为Release模式
+set(DCMAKE_BUILD_TYPE "Release")
+ 
+# 添加opencv的头文件地址
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+ 
+# 添加show_img内头文件的地址，如果目录结构有变化，修改“.”的内容
+aux_source_directory(. DIR_SRC)
+message(STATUS "SRC: ${DIR_SRC}")
+
+# 添加opencv库地址
+add_library(showimg SHARED ${DIR_SRC})
+ 
+# 连接opencv库
+target_link_libraries(showimg ${OpenCV_LIBS})
+ 
+# 设置编译得到的so文件的保存目录为【${PROJECT_SOURCE_DIR}】
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
+
+# 指定编译库输出的位置，这个可以设置也可以不设置
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY .)
+SET_TARGET_PROPERTIES(showimg PROPERTIES LINKER_LANGUAGE CXX#c
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+        OUTPUT_NAME "showimg"
+        PREFIX "")
+
+# 设置so文件的名字为【showimg】，生成的so文件名字为【libshowimg】
+# 并设置文件在保存目录下的保存文件夹为【lib】，该文件夹会自动被创立 
+install(TARGETS showimg LIBRARY DESTINATION lib)
+
