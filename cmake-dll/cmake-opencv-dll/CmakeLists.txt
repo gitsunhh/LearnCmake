@@ -1,0 +1,26 @@
+cmake_minimum_required (VERSION 3.0)
+project(demo CXX)
+set(DCMAKE_BUILD_TYPE "Release")
+ 
+# opencv的include文件路径
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+# 私有so的include文件路径
+include_directories("./show_img")
+
+# 待编译文件的地址
+aux_source_directory(. DIR_SRC)
+ 
+# 添加so文件的连接地址
+link_directories ("./show_img/build/Release") #提供找showimg.lib的路径
+ 
+# 生成可执行文件
+add_executable (demo ${DIR_SRC})
+
+# 连接opencv库文件
+target_link_libraries(demo ${OpenCV_LIBS})
+# 连接私有so的库文件
+target_link_libraries (${PROJECT_NAME} showimg.lib)
+
+# 设置可执行文件的保存路径
+set(EXECUTABLE_OUTPUT_PATH ..)
