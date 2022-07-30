@@ -92,7 +92,7 @@ set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
 install(TARGETS showimg LIBRARY DESTINATION lib)
 ```
 
-#References
+# References
 
 __CmakeLists语法__
 
@@ -113,4 +113,5 @@ __引用函数__
 [C++生成dll和调用dll以及利用CMAKE生成c++ dll的问题](https://blog.csdn.net/yangjj2005/article/details/124673281)
 
 __其他__
+
 [导出DLL的namespace](https://bbs.csdn.net/topics/330143626)
