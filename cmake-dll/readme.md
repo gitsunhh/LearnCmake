@@ -93,14 +93,17 @@ install(TARGETS showimg LIBRARY DESTINATION lib)
 ```
 
 #References
+
 __CmakeLists语法__
 [Ubuntu下编译CPP动态链接库及使用方法](https://blog.csdn.net/sunzhao1000/article/details/115264790?spm=1001.2014.3001.5501)
 [在CentOS/Ubuntu系统上将opencv的静态库(.a)打包成项目中所需的动态库文件(.so)(使用CMakeLists.txt实现)](https://www.it610.com/article/1274409352542830592.htm)
 [如何通过cmake自动拷贝运行所需dll到executable目录](https://www.jianshu.com/p/47370c584356)
+
 __引用函数__
 [cmake生成动态链接库dll](https://jasonkayzk.github.io/2021/01/27/cmake%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93dll/)
 [Lib和DLL调用与实现](https://blog.csdn.net/weixin_45239587/article/details/118990836)
 [cmake使用教程（五）调用opencv外部库和自己生成的库](https://blog.csdn.net/weixin_42398658/article/details/121701995)
 [C++生成dll和调用dll以及利用CMAKE生成c++ dll的问题](https://blog.csdn.net/yangjj2005/article/details/124673281)
+
 __其他__
 [导出DLL的namespace](https://bbs.csdn.net/topics/330143626)
